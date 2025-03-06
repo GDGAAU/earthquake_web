@@ -64,7 +64,7 @@ function Home() {
               </motion.li>
               <motion.li whileHover={{ scale: 1.1 }}>
                 <a
-                  href="https://t.me/ch"
+                  href="https://t.me/earth_not_prov"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-3 py-1 bg-blue-400 text-slate-900 font-bold rounded hover:bg-blue-500 transition-colors duration-200"
@@ -133,7 +133,7 @@ function Home() {
         className="text-center py-4"
       >
         <a 
-          href="https://t.me/ch" 
+          href="https://t.me/earth_not_prov"
           target="_blank" 
           rel="noopener noreferrer"
           className="px-4 py-2 bg-blue-400 text-slate-900 font-bold rounded hover:bg-blue-500 transition-colors duration-200 inline-block"
