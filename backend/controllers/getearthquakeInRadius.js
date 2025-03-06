@@ -24,18 +24,26 @@ const getEarthquakesInRadius = async (req, res) => {
       `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&limit=15&minmagnitude=2&maxradiuskm=${radius}&latitude=${userLat}&longitude=${userLon}`
     );
 
-    // Log the API response to check if it returns data
-    console.log(response.data);
+    console.log(response.data); // Log API response to check data
 
-    // Filter earthquakes within the specified radius
-    const earthquakesInRadius = response.data.features.map((quake) => ({
-      magnitude: quake.properties.mag,
-      location: quake.properties.place, // Location of the earthquake
-      latitude: quake.geometry.coordinates[1],
-      longitude: quake.geometry.coordinates[0],
-      distance: calculateDistance(userLat, userLon, quake.geometry.coordinates[1], quake.geometry.coordinates[0]).toFixed(2),
-      time: new Date(quake.properties.time).toLocaleString(), // Convert timestamp to human-readable date & time
-    }));
+    // Process earthquake data
+    let earthquakesInRadius = response.data.features.map((quake) => {
+      const quakeLat = quake.geometry.coordinates[1];
+      const quakeLon = quake.geometry.coordinates[0];
+      const distance = calculateDistance(userLat, userLon, quakeLat, quakeLon).toFixed(2);
+
+      return {
+        magnitude: quake.properties.mag,
+        location: quake.properties.place, // Location of the earthquake
+        latitude: quakeLat,
+        longitude: quakeLon,
+        distance: parseFloat(distance), // Convert back to number for sorting
+        time: new Date(quake.properties.time).toLocaleString(), // Convert timestamp to readable format
+      };
+    });
+
+    // Sort earthquakes by distance (nearest first)
+    earthquakesInRadius.sort((a, b) => a.distance - b.distance);
 
     // If no earthquakes are found within the radius, return a message
     if (earthquakesInRadius.length === 0) {
@@ -44,10 +52,10 @@ const getEarthquakesInRadius = async (req, res) => {
       });
     }
 
-    console.log(earthquakesInRadius); // Log filtered earthquakes to ensure filtering works
+    console.log(earthquakesInRadius); // Log sorted earthquakes
     res.json(earthquakesInRadius);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).json({ error: "Failed to fetch earthquake data" });
   }
 };
