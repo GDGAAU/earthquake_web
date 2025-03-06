@@ -1,9 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { MapIcon, ListBulletIcon } from '@heroicons/react/24/outline';
 import { GlobeAltIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-
 
 export default function Header() {
   return (
@@ -22,8 +21,8 @@ export default function Header() {
             <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
               ShakeWatch
             </h1>
-            </motion.div>
-          </Link>
+          </motion.div>
+        </Link>
         <nav>
           <ul className="flex space-x-8 items-center">
             <motion.li whileHover={{ scale: 1.1 }}>
@@ -45,6 +44,15 @@ export default function Header() {
               </Link>
             </motion.li>
             <motion.li whileHover={{ scale: 1.1 }}>
+              <Link
+                to="/earthquake-risk"
+                className="flex items-center space-x-2 text-gray-300 hover:text-blue-400 transition-colors duration-200"
+              >
+                <MapIcon className="h-5 w-5" />
+                <span className="font-medium">Earthquake Risk</span>
+              </Link>
+            </motion.li>
+            <motion.li whileHover={{ scale: 1.1 }}>
               <a
                 href="https://t.me/earth_not_prov"
                 target="_blank"
@@ -58,5 +66,5 @@ export default function Header() {
         </nav>
       </div>
     </motion.header>
-  )
+  );
 }
