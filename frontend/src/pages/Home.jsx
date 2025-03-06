@@ -28,44 +28,52 @@ function Home() {
         animate={{ y: 0 }}
         className="sticky top-0 z-50 backdrop-blur-lg bg-slate-900/80 shadow-lg border-b border-slate-800"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <motion.div 
-              className="flex items-center space-x-3"
-              whileHover={{ scale: 1.05 }}
-            >
-              <GlobeAltIcon className="h-8 w-8 text-blue-400" />
-              <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-                EarthQuake
-              </h1>
-            </motion.div>
-            <nav>
-              <ul className="flex space-x-8">
-                <motion.li whileHover={{ scale: 1.1 }}>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.location.reload();
-                    }}
-                    className="flex items-center space-x-2 text-gray-300 hover:text-blue-400 transition-colors duration-200"
-                  >
-                    <ListBulletIcon className="h-5 w-5" />
-                    <span className="font-medium">List</span>
-                  </a>
-                </motion.li>
-                <motion.li whileHover={{ scale: 1.1 }}>
-                  <Link
-                    to="/safety-guides"
-                    className="flex items-center space-x-2 text-gray-300 hover:text-blue-400 transition-colors duration-200"
-                  >
-                    <MapIcon className="h-5 w-5" />
-                    <span className="font-medium">Safety Guides</span>
-                  </Link>
-                </motion.li>
-              </ul>
-            </nav>
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+          <motion.div 
+            className="flex items-center space-x-3"
+            whileHover={{ scale: 1.05 }}
+          >
+            <GlobeAltIcon className="h-8 w-8 text-blue-400" />
+            <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+              EarthQuake
+            </h1>
+          </motion.div>
+          <nav>
+            <ul className="flex space-x-8 items-center">
+              <motion.li whileHover={{ scale: 1.1 }}>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.reload();
+                  }}
+                  className="flex items-center space-x-2 text-gray-300 hover:text-blue-400 transition-colors duration-200"
+                >
+                  <ListBulletIcon className="h-5 w-5" />
+                  <span className="font-medium">List</span>
+                </a>
+              </motion.li>
+              <motion.li whileHover={{ scale: 1.1 }}>
+                <Link
+                  to="/safety-guides"
+                  className="flex items-center space-x-2 text-gray-300 hover:text-blue-400 transition-colors duration-200"
+                >
+                  <MapIcon className="h-5 w-5" />
+                  <span className="font-medium">Safety Guides</span>
+                </Link>
+              </motion.li>
+              <motion.li whileHover={{ scale: 1.1 }}>
+                <a
+                  href="https://t.me/ch"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1 bg-blue-400 text-slate-900 font-bold rounded hover:bg-blue-500 transition-colors duration-200"
+                >
+                  Join Telegram
+                </a>
+              </motion.li>
+            </ul>
+          </nav>
         </div>
       </motion.header>
 
@@ -119,6 +127,20 @@ function Home() {
           )}
         </div>
       </main>
+      <motion.div 
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="text-center py-4"
+      >
+        <a 
+          href="https://t.me/ch" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="px-4 py-2 bg-blue-400 text-slate-900 font-bold rounded hover:bg-blue-500 transition-colors duration-200 inline-block"
+        >
+          Join our Telegram channel for latest notifications
+        </a>
+      </motion.div>
     </div>
   );
 }
