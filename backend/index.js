@@ -5,6 +5,8 @@ const earthquakeRoutes = require("./routes/earthquakeRoutes");
 
 dotenv.config();
 
+require("./worker")
+
 const app = express();
 app.use(cors());
 app.use(express.json());
