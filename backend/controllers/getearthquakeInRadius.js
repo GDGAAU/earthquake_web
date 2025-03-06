@@ -58,4 +58,18 @@ const getEarthquakesInRadius = async (req, res) => {
   }
 };
 
-module.exports = { getEarthquakesInRadius };
+
+// Fetch previous earthquakes from MongoDB
+const getPreviousEarthquakes = async (req, res) => {
+  try {
+    const previousQuakes = await Earthquake.find()
+      .sort({ time: -1 }) // Sort by time descending (most recent first)
+      .limit(50); // Limit to 50 for performance
+    res.json(previousQuakes);
+  } catch (error) {
+    console.error("Error in getPreviousEarthquakes:", error.message);
+    res.status(500).json({ error: "Failed to fetch previous earthquakes" });
+  }
+};
+
+module.exports = { getEarthquakesInRadius,getPreviousEarthquakes };

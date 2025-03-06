@@ -1,5 +1,5 @@
 const express = require("express");
-const { getEarthquakesInRadius } = require("../controllers/getearthquakeInRadius");
+const { getEarthquakesInRadius,getPreviousEarthquakes } = require("../controllers/getearthquakeInRadius");
 const router = express.Router();
 
 const { getEarthquakesByMagnitude } = require("../controllers/magnitudecontroller");
@@ -9,5 +9,6 @@ router.get("/magnitude", getEarthquakesByMagnitude);
 
 
 router.get("/earthquakes-in-radius", getEarthquakesInRadius);
+router.get("/previous", getPreviousEarthquakes);
 
 module.exports = router;
