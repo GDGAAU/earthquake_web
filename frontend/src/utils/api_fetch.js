@@ -29,7 +29,7 @@ export async function fetchEarthquakeData(radius) {
 
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/earthquakes/earthquakes-in-radius?userLat=${userLat}&userLon=${userLon}&radius=${radius}`
+      `http://localhost:5000/api/earthquakes/earthquakes-in-radius?userLat=${userLat}&userLon=${userLon}&radius=${radius ? radius : 1000}`
     );
     return response.data;
   } catch (error) {

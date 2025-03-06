@@ -44,7 +44,7 @@ function Home() {
             type="number"
             value={radius}
             onChange={(e) => setRadius(e.target.value)}
-            className="p-2 rounded border border-gray-300"
+            className="p-2 rounded border border-gray-300 bg-white text-black"
           />
         </div>
         {earthquakes.length > 0 ? (
