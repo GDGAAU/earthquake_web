@@ -51,8 +51,10 @@ async function pollEarthquakeData() {
         });
         await newQuake.save();
 
+        const severity = mag < 3 ? "mild" : mag < 4 ? "medium" : "high";
+
         // Prepare message text for Telegram
-        const message = `New earthquake detected!
+        const message = `New earthquake detected with ${severity} severity!
 Location: ${place}
 Magnitude: ${mag}
 Time: ${quakeTime.toLocaleString()}
