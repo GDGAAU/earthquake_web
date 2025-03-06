@@ -5,10 +5,13 @@ import { fetchEarthquakeData } from '../utils/api_fetch';
 function Home() {
   const [earthquakes, setEarthquakes] = useState([]);
   const [radius, setRadius] = useState(1000);
+  const [loading, setLoading] = useState(true);
 
   async function getData() {
+    setLoading(true);
     const data = await fetchEarthquakeData(radius);
     setEarthquakes(data);
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -44,13 +47,16 @@ function Home() {
             type="number"
             value={radius}
             onChange={(e) => setRadius(e.target.value)}
+            max={20000}
             className="p-2 rounded border border-gray-300 bg-white text-black"
           />
         </div>
-        {earthquakes.length > 0 ? (
+        {loading ? (
+          <p className="text-white">Loading earthquake data...</p>
+        ) : earthquakes.length > 0 ? (
           <EarthQuakeList earthquakes={earthquakes} />
         ) : (
-          <p className="text-white">Loading earthquake data...</p>
+          <p className="text-white">No earthquakes in the specified radius.</p>
         )}
       </div>
     </div>
