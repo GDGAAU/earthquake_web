@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import EarthQuakeList from '../components/EarthQuakeList';
 import { fetchEarthquakeData } from '../utils/api_fetch';
 import { GlobeAltIcon, MapIcon, ListBulletIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 function Home() {
   const [earthquakes, setEarthquakes] = useState([]);
@@ -42,7 +43,11 @@ function Home() {
               <ul className="flex space-x-8">
                 <motion.li whileHover={{ scale: 1.1 }}>
                   <a
-                    href="#list"
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.reload();
+                    }}
                     className="flex items-center space-x-2 text-gray-300 hover:text-blue-400 transition-colors duration-200"
                   >
                     <ListBulletIcon className="h-5 w-5" />
@@ -50,13 +55,13 @@ function Home() {
                   </a>
                 </motion.li>
                 <motion.li whileHover={{ scale: 1.1 }}>
-                  <a
-                    href="#map"
+                  <Link
+                    to="/safety-guides"
                     className="flex items-center space-x-2 text-gray-300 hover:text-blue-400 transition-colors duration-200"
                   >
                     <MapIcon className="h-5 w-5" />
-                    <span className="font-medium">Map</span>
-                  </a>
+                    <span className="font-medium">Safety Guides</span>
+                  </Link>
                 </motion.li>
               </ul>
             </nav>
