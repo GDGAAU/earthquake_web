@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import SafetyGuides from './pages/SafetyGuides';
+import Sources from './pages/Sources';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/home" element={<Home />} />
         <Route path="/safety-guides" element={<SafetyGuides />} />
+        <Route path="/sources" element={<Sources />} />
       </Routes>
     </BrowserRouter>
   );
