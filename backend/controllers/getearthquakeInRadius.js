@@ -24,8 +24,6 @@ const getEarthquakesInRadius = async (req, res) => {
       `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&limit=15&minmagnitude=2&maxradiuskm=${radius}&latitude=${userLat}&longitude=${userLon}`
     );
 
-    console.log(response.data); // Log API response to check data
-
     // Process earthquake data
     let earthquakesInRadius = response.data.features.map((quake) => {
       const quakeLat = quake.geometry.coordinates[1];
