@@ -1,35 +1,11 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { GlobeAltIcon, CheckCircleIcon, ExclamationTriangleIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
+import Header from '../components/Header';
 
 function SafetyGuides() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
-      <motion.header 
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className="sticky top-0 z-50 backdrop-blur-lg bg-slate-900/80 shadow-lg border-b border-slate-800"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-            Safety Guides
-          </h1>
-          <div className="space-x-4">
-            <Link to="/" className="text-blue-400 hover:underline">
-              Home
-            </Link>
-            <a 
-              href="https://t.me/earth_not_prov" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="px-3 py-1 bg-blue-400 text-slate-900 font-bold rounded hover:bg-blue-500 transition-colors duration-200"
-            >
-              Join Telegram
-            </a>
-          </div>
-        </div>
-      </motion.header>
+      <Header />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="bg-slate-800/50 backdrop-blur-md rounded-2xl shadow-2xl p-6 mb-8 border border-slate-700">
           <h2 className="text-2xl font-bold text-white mb-4">During an Earthquake</h2>
