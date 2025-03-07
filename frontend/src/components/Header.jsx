@@ -44,6 +44,11 @@ export default function Header() {
             </motion.li>
             <motion.li whileHover={{ scale: 1.1 }}>
               <Link
+                to="/earthquake-risk"
+                className="flex items-center space-x-2 text-gray-300 hover:text-blue-400 transition-colors duration-200"
+              >
+                <MapIcon className="h-5 w-5" />
+                <span className="font-medium">Earthquake Risk</span>
                 to="/sources"
                 className="flex items-center space-x-2 text-gray-300 hover:text-blue-400 transition-colors duration-200"
               >
@@ -65,5 +70,5 @@ export default function Header() {
         </nav>
       </div>
     </motion.header>
-  )
+  );
 }
