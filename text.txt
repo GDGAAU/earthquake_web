@@ -1,0 +1,93 @@
+Project Title: ShakeWatch - Real-time Earthquake Monitoring and Safety Platform
+
+1. Requirement Specification
+
+Goal: To provide users with real-time earthquake information and safety guidelines to increase awareness and preparedness.
+Target Audience: General public, residents in earthquake-prone areas, emergency response teams.
+Functional Requirements:
+Display a list of recent earthquakes within a specified radius of the user's location.
+Allow users to customize the search radius.
+Provide detailed information about each earthquake (magnitude, location, time, coordinates).
+Offer safety guidelines for earthquake preparedness, during, and after an earthquake.
+Provide a link to a Telegram channel for real-time earthquake notifications.
+Display a dashboard with a welcome message and a brief description of the app.
+Non-Functional Requirements:
+The application should be responsive and accessible on various devices (desktops, tablets, and mobile phones).
+The application should load quickly and provide real-time data updates.
+The application should be user-friendly and easy to navigate.
+The backend should efficiently handle API requests and database operations.
+The system should be scalable to accommodate a growing number of users.
+
+2. Features Implemented
+
+Real-time Earthquake Data: Fetches earthquake data from the USGS API.
+Customizable Search Radius: Allows users to specify a radius (in kilometers) to search for earthquakes around their location.
+Earthquake Information Display: Displays key information for each earthquake, including:
+Location
+Magnitude (with color-coding based on severity)
+Latitude and Longitude
+Time of occurrence
+Distance from the user's location
+Safety Guides Page: Provides comprehensive safety guidelines for earthquake preparedness, actions during an earthquake, and post-earthquake procedures.
+Telegram Integration: Includes a link to a Telegram channel for real-time earthquake notifications.
+Dashboard: A landing page with a welcome message, a brief description of the app, and a link to the Telegram channel.
+
+3. System Architecture
+
+The application follows a three-tier architecture:
+
+Frontend (React):
+User interface built with React and styled with Tailwind CSS.
+Uses axios to make API requests to the backend.
+Uses framer-motion for smooth animations and transitions.
+Uses react-router-dom for navigation between different pages.
+Components:
+App.jsx: Main application component that sets up routing.
+Home.jsx: Displays the earthquake list and search radius input.
+Dashboard.jsx: Landing page with a welcome message and Telegram link.
+SafetyGuides.jsx: Displays earthquake safety guidelines.
+Header.jsx: Navigation header with links to different pages.
+EarthQuakeList.jsx: Renders a list of EarthQuakeCard components.
+EarthQuakeCard.jsx: Displays individual earthquake information.
+api_fetch.js: Contains the fetchEarthquakeData function to fetch earthquake data from the backend.
+Backend (Node.js with Express):
+REST API built with Node.js and Express.
+Uses mongoose to interact with the MongoDB database.
+Uses axios to fetch earthquake data from the USGS API.
+Uses dotenv to manage environment variables.
+Controllers:
+getearthquakeInRadius.js: Handles requests to fetch earthquakes within a specified radius.
+magnitudecontroller.js: Handles requests to fetch earthquakes sorted by magnitude.
+Models:
+earthquake.js: Defines the schema for storing earthquake data in MongoDB.
+Routes:
+earthquakeRoutes.js: Defines the API endpoints for fetching earthquake data.
+worker.js: A background worker that polls the USGS API for new earthquakes and sends notifications to a Telegram channel.
+db.js: Establishes a connection to the MongoDB database.
+Database (MongoDB):
+Stores earthquake data to prevent duplicate notifications.
+Cloud-based MongoDB Atlas is used for scalability and reliability.
+External APIs:
+USGS Earthquake API: Provides real-time earthquake data.
+Telegram Bot API: Sends earthquake notifications to the Telegram channel.
+
+4. Rooms for Improvement
+
+Real-time Updates on Frontend: Implement real-time updates on the frontend using WebSockets to display new earthquakes as they occur without requiring a page refresh.
+User Authentication: Implement user authentication to allow users to save their preferred search radius and receive personalized notifications.
+Interactive Map: Integrate a map to visualize earthquake locations and user's location.
+Improved Geolocation: Enhance geolocation accuracy and provide options for users to manually set their location.
+More Detailed Earthquake Information: Include additional earthquake details such as depth, type of faulting, and links to related resources.
+Testing: Implement unit and integration tests for both frontend and backend to ensure code quality and reliability.
+Error Handling: Implement more robust error handling and logging to identify and address issues quickly.
+Performance Optimization: Optimize API requests and database queries to improve performance and reduce latency.
+
+5. Future Plans
+
+Advanced Filtering: Allow users to filter earthquakes by magnitude range, time period, and other criteria.
+Personalized Notifications: Implement personalized earthquake notifications based on user's location and preferences.
+Multi-Language Support: Add support for multiple languages to reach a wider audience.
+Mobile App: Develop native mobile apps for iOS and Android to provide a better user experience.
+Machine Learning Integration: Use machine learning to predict potential aftershocks and provide more accurate risk assessments.
+Community Features: Add community features such as forums or chat rooms for users to share information and experiences.
+Integration with Emergency Services: Integrate with local emergency services to provide faster and more coordinated responses to earthquakes.

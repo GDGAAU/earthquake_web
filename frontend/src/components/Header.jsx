@@ -1,6 +1,5 @@
-import React from 'react';
-import { MapIcon, ListBulletIcon } from '@heroicons/react/24/outline';
-import { GlobeAltIcon } from '@heroicons/react/24/outline';
+import React from 'react'
+import { MapIcon, ListBulletIcon, DocumentTextIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -50,6 +49,11 @@ export default function Header() {
               >
                 <MapIcon className="h-5 w-5" />
                 <span className="font-medium">Earthquake Risk</span>
+                to="/sources"
+                className="flex items-center space-x-2 text-gray-300 hover:text-blue-400 transition-colors duration-200"
+              >
+                <DocumentTextIcon className="h-5 w-5" />
+                <span className="font-medium">Sources</span>
               </Link>
             </motion.li>
             <motion.li whileHover={{ scale: 1.1 }}>
